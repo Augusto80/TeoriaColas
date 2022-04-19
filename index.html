@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>Modelos de colas simples</title>
+</head>
+
+<body style="background-color: #e7e7e7;">
+
+    <div class="cuadro-login">
+        <div class="container">
+            <a id="inicio" href="index.html">
+                <img class="mt-2" src="img/itsa.png" alt="Logo de Itsa" width="140px">
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mt-5">
+                <h4 class="text-center" style="color: #183980;">!Elige el modelo de colas que deseas calcular!</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            
+            <div class="col-lg-4 mt-4">
+                <div class="card bg-white shadow-lg mx-auto d-block" style="width: 18rem; height: 25em;">
+                    <a id="perfil-mm1" href="html/form-mm1.html">
+                        <figure>
+                            <img src="img/MM1.png" alt="Imagen del enlace sobre mm1">
+                            <div class="capa">
+                                <h3>Modelo de cola M/M/1</h3>
+                                <p>Los tiempos de llegadas y de servicio se distribuyen de manera exponencial y tienen un único servidor.</p>
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="text-center font-weight-bold" style="color: #183980;">Modelo de cola M/M/1</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mt-4">
+                <div class="card bg-white mb-3 shadow-lg mx-auto d-block" style="width: 18rem; height: 25em;">
+                    <a id="perfil-mms" href="html/form-mms.html">
+                        <figure>
+                            <img src="img/MMS.png" alt="Imagen del enlace sobre mms">
+                            <div class="capa">
+                                <h3>Modelo de cola M/M/S</h3>
+                                <p>El número de servidores s puede ser
+                                    cualquier número natural tal que s > 1.</p>
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="text-center font-weight-bold" style="color: #183980;"> Modelo de cola M/M/S</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mt-4">
+                <div class="card bg-white shadow-lg mx-auto d-block" style="width: 18rem; height: 25em;">
+                    <a id="perfil-mmsk" href="html/form-mm1k.html">
+                        <figure>
+                            <img src="img/MM1K.png" alt="Imagen del enlace sobre mm1k">
+                            <div class="capa">
+                                <h3>Modelo de cola M/M/1/K</h3>
+                                <p>Un servidor atiende todas las peticiones. El número máximo de clientes en el sistema en estos 
+                                    modelos se encuentran limitado a k (Capacidad de cola) </p>
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="text-center font-weight-bold" style="color: #183980;">Modelo de cola M/M/1/K</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            
+            <div class="col-lg-4 mt-4">
+                <div class="card bg-white shadow-lg mx-auto d-block" style="width: 18rem; height: 25em;">
+                    <a id="perfil-mm1" href="html/form-mg1.html">
+                        <figure>
+                            <img src="img/MG1.png" alt="Imagen del enlace sobre mm1">
+                            <div class="capa">
+                                <h3>Modelo de cola M/G/1</h3>
+                                <p>Un servidor con tiempos entre llegadas exponenciales y una distribución general detiempos de servicio</p>
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="text-center font-weight-bold" style="color: #183980;">Modelo de cola M/G/1</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mt-4">
+                <div class="card bg-white mb-3 shadow-lg mx-auto d-block" style="width: 18rem; height: 25em;">
+                    <a id="perfil-mms" href="html/form-md1.html">
+                        <figure>
+                            <img src="img/MD1.png" alt="Imagen del enlace sobre md1">
+                            <div class="capa">
+                                <h3>Modelo de cola M/D/1</h3>
+                                <p>el modelo M/D/1 se reduce a un caso particular del modelo
+                                    M/G/1  en donde σ = 0.</p>
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="text-center font-weight-bold" style="color: #183980;"> Modelo de cola M/D/1</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mt-4">
+                <div class="card bg-white shadow-lg mx-auto d-block" style="width: 18rem; height: 25em;">
+                    <a id="perfil-mmsk" href="html/form-mek1.html">
+                        <figure>
+                            <img src="img/MEK1.png" alt="Imagen del enlace sobre mm1k">
+                            <div class="capa">
+                                <h3>Modelo de cola M/Ek/1</h3>
+                                <p>Un servidor con tiempos entre llegadas exponenciales y una distribución Erlang de tiempos de servicio</p>
+                            </div>
+                        </figure>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="text-center font-weight-bold" style="color: #183980;">Modelo de cola M/EK/1</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br>
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+<footer style="background-color: #ffffff;" class="text-white mt-4">
+    <div class="container">
+        <div class="row " style="color: #183980;">
+            <div class="col-lg-12 ml-auto"  >
+                <h4 class="font-weight-bold">2022-1.TEL24. TEORÍA DE TRÁFICO Y COLAS - 12_G1_TLM_BQ</h4>
+                <p>Docente: Marlene Ballestas</p> 
+                <p>Facultad de ingenieria telematica</p>
+            </div>
+
+            <div class="col-lg-12 ml-auto">
+                <p class="text-center">© 2022 - 2022 2022-1.TEL24, Inc. Todos los derechos reservados. Privacy policy   /   Site map</p>
+            </div>          
+        </div>
+    </div>
+</footer>
+</html>

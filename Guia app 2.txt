@@ -1,0 +1,107 @@
+public void calcular_mms(View view) {
+
+        EditText landa = findViewById(R.id.landa);
+        EditText miu = findViewById(R.id.miu);
+        EditText servidores = findViewById(R.id.servidores);
+        EditText n = findViewById(R.id.n);
+        TextView textWq = findViewById(R.id.textWq);
+        TextView textWs = findViewById(R.id.textWs);
+        TextView textLq = findViewById(R.id.textLq);
+        TextView textLs = findViewById(R.id.textLs);
+        TextView textp = findViewById(R.id.textp);
+        TextView textp_0 = findViewById(R.id.textp_0);
+        TextView textRo = findViewById(R.id.textRo);
+        TextView textTs = findViewById(R.id.textTs);
+        TextView textUs = findViewById(R.id.textUs);
+        TextView Wq = findViewById(R.id.Wq);
+        TextView Ws = findViewById(R.id.Ws);
+        TextView Lq = findViewById(R.id.Lq);
+        TextView Ls = findViewById(R.id.Ls);
+        TextView p = findViewById(R.id.p);
+        TextView p_0 = findViewById(R.id.p_0);
+        TextView Ro = findViewById(R.id.Ro);
+        TextView Ts = findViewById(R.id.Ts);
+        TextView Us = findViewById(R.id.Us);
+
+        try {
+            if(landa!=null && miu!=null && servidores!=null && n!=null){
+
+                float vlanda = Float.parseFloat(landa.getText().toString());
+                float vmiu = Float.parseFloat(miu.getText().toString());
+                float vservidores = Float.parseFloat(servidores.getText().toString());
+                float vn = Float.parseFloat(n.getText().toString());
+
+                float vWq, vWs, vLq, vLs, vp=0, vp_0=0, vro, vtser, vutipros, vsuma=0, vfactorial=1;
+
+                vtser=1/vmiu;
+                vutipros=vlanda/vmiu;
+                vro=vlanda/(vservidores*vmiu);
+
+                //ciclo para calcular la sumatoria de p_0
+                for(int i=0; i<=(vservidores-1); i++){
+                    if (i==0){
+                        vsuma+=(1/(vfactorial));
+                    }else{
+                        vfactorial=vfactorial*i;
+                        vsuma+=(Math.pow(vutipros,i)/(vfactorial));
+                    }
+
+                }
+
+                vp_0= (float) (1/(vsuma+( ( Math.pow(vutipros,vservidores) / (vfactorial*vservidores) ) * ( 1/(1-vro) ) )));
+   
+                int fact=1;
+
+                if(vn<=vservidores){
+                    if(vn>0){
+                        for (int i=1; i<=vn; i++){
+                            fact=fact*i;
+                        }
+                    }
+                    vp= (float) (Math.pow(vutipros,vn) / fact) * vp_0;
+                }
+                if(vn>vservidores){
+                    vp= (float) (Math.pow(vutipros,vn) / ( (vfactorial*vservidores) * Math.pow(vservidores,vn-vservidores) )) * vp_0;
+                }
+
+                vLq = (float) (( Math.pow(vutipros,vservidores)*vlanda*vmiu )/( vfactorial * (Math.pow( (vservidores*vmiu)-vlanda , 2)) )) * vp_0;
+                vLs = vLq+vutipros;
+                vWq = vLq/vlanda;
+                vWs = vLs/vlanda;
+
+
+
+                Wq.setText(String.valueOf(vWq));
+                Ws.setText(String.valueOf(vWs));
+                Lq.setText(String.valueOf(vLq));
+                Ls.setText(String.valueOf(vLs));
+                p.setText(String.valueOf(vp));
+                p_0.setText(String.valueOf(vp_0));
+                Ro.setText(String.valueOf(vro));
+                Ts.setText(String.valueOf(vtser));
+                Us.setText(String.valueOf(vutipros));
+
+                textWq.setVisibility(View.VISIBLE);
+                textWs.setVisibility(View.VISIBLE);
+                textLq.setVisibility(View.VISIBLE);
+                textLs.setVisibility(View.VISIBLE);
+                textp.setVisibility(View.VISIBLE);
+                textp_0.setVisibility(View.VISIBLE);
+                textRo.setVisibility(View.VISIBLE);
+                textTs.setVisibility(View.VISIBLE);
+                textUs.setVisibility(View.VISIBLE);
+                Wq.setVisibility(View.VISIBLE);
+                Ws.setVisibility(View.VISIBLE);
+                Lq.setVisibility(View.VISIBLE);
+                Ls.setVisibility(View.VISIBLE);
+                p.setVisibility(View.VISIBLE);
+                p_0.setVisibility(View.VISIBLE);
+                Ro.setVisibility(View.VISIBLE);
+                Ts.setVisibility(View.VISIBLE);
+                Us.setVisibility(View.VISIBLE);
+            }
+        }catch (Exception e){};
+
+
+
+    }

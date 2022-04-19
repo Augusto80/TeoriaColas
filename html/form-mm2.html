@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo M/M/1</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link rel="stylesheet" href="../css/formulario.css">
+    <script src="../js/mm1.js"></script>
+
+</head>
+
+<body style="background-color: #e7e7e7;">
+    <div class="container mt-4 ">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-12 mt-4">
+                <div class="card p-3 mb-5">
+                    <div class="card-header bg-white">
+                        <h5>MODELO DE COLA M/M/1</h5>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form action="" name="calcular" class="calcular" id="calcular">
+
+                            <div class="form-row" id="grupo-txtServidores">
+                                <label for="txtServidores" class="col-lg-3">Número de servidores: </label>
+                                <div class="form-group col-lg-9">
+                                    <input class="form-control" name="txtServidores"
+                                        id="txtServidores" type="number" placeholder="1" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-row" id="grupo-txtTasaServicio">
+                                <label for="txtTasaServicio" class="col-lg-3">Tasa de servicio (hora - miu): </label>
+                                <div class="form-group col-lg-9">
+                                    <input name="txtTasaServicio" id="txtTasaServicio" type="number"  min="0" step="0.1"
+                                     max="10" placeholder="Tasa de servicio" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row" id="grupo-txtTasaLLegadaClientes">
+                                <label for="txtTasaLLegadaClientes" class="col-lg-3">Tasa de llegada de clientes (hora - lamda): </label>
+                                <div class="form-group col-lg-9 ">
+                                    <input name="txtTasaLLegadaClientes" id="txtTasaLLegadaClientes" type="number" step="0.01"
+                                     placeholder="Tasa de llegada de clientes" required>
+                                </div>
+                            </div>
+
+                            <!--div class="text-center mt-2 formulario-grupo formulario-grupo-btn-enviar">
+                                <button class="btn btn-btn formulario-btn btn-calcular" id="btnGuardar"
+                                    type="button" onclick="calcular();">Calcular</button>
+                                <p class="formulario-mensaje-exito" id="formulario-mensaje-exito">Formulario enviado
+                                    exitosamente!</p>
+                            </div-->
+
+                            <input type="button" name="calcular" id="calcular" value="calcular" onclick="calcular()"/>
+
+                         
+                        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div>
+                    <h4 class="resultados">Tabla de resultados - M/M/1</h4>
+                </div>
+             
+                    <div class="table-responsive-md">
+                        <table class="table table-sm table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Contexto</th>
+                                    <th scope="col">Resultado</th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td >Sistema M/M/1</td>
+                                    <td> M/M/1</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Tasa de llegada de clientes (hora - lamda):</td>
+                                    <td id="lamda">0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Tasa de servicio (hora - miu):</td>
+                                    <td id="miu">0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Tasa de llegadas eficaces al sistema global por hora: </td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Tasa de servicio eficaz del sistema global por hora: </td>
+                                    <td>0</td>
+                                </tr> 
+                                <tr>
+                                    <th scope="row">6</th>
+                                    <td>Tasa de ocupación del sistema: </td>
+                                    <td id="p">0</td>
+                                </tr>
+                                 <tr>
+                                    <th scope="row">7</th>
+                                    <td>Número promedio de clientes en el sistema [Ls]: </td>
+                                    <td id="Ls">0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">8</th>
+                                    <td>Número promedio de clientes en la cola [Lq]: </td>
+                                    <td id="Lq">0</td>
+                                </tr> 
+                                <tr>
+                                    <th scope="row">9</th>
+                                    <td>Número  promedio  de clientes en la cola para un sistema ocupado [Lb]:</td>
+                                    <td id="Lb">0</td>
+                                </tr> 
+                                <tr>
+                                    <th scope="row">10</th>
+                                    <td>Tiempo promedio que un cliente pasa en el sistema [Ws]:</td>
+                                    <td id="Ws">0</td>
+                                </tr> 
+                                <tr>
+                                    <th scope="row">11</th>
+                                    <td>Tiempo promedio que un cliente pasa en la cola [Wq]: </td>
+                                    <td id="Wq">0</td>
+                                </tr> 
+                                <tr>
+                                    <th scope="row">12</th>
+                                    <td>Tiempo promedio que un cliente pasa en la cola para un sistema ocupado [Wb]:</td>
+                                    <td id="Wb">0</td>
+                                </tr> 
+                                <tr>
+                                    <th scope="row">13</th>
+                                    <td>Probabilidad  de  que  todos  los  servidores  esten inactivos [Po]:</td>
+                                    <td id="Po">0</td>
+                                </tr> 
+                                <tr>
+                                    <th scope="row">14</th>
+                                    <td>Probabilidad de que un cliente espere al llegar al sistema:</td>
+                                    <td>0</td>
+                                </tr> <tr>
+                                    <th scope="row">15</th>
+                                    <td>Numero  promedio  de  clientes  que no serán atendidos por el sistema por hora:</td>
+                                    <td>0</td>
+                                </tr> 
+                                <tr>
+                                    <th scope="row">16</th>
+                                    <td>Coste total del servidor ocupado por hora: </td>
+                                    <td>0</td>
+                                </tr> 
+                                <tr>
+                                    <th scope="row">17</th>
+                                    <td>Coste total del servidor inactivo por hora:</td>
+                                    <td>0</td>
+                                </tr> 
+                                <tr>
+                                    <th scope="row">18</th>
+                                    <td>Coste total de cliente en espera por hora:</td>
+                                    <td>0</td>
+                                </tr>
+                                <!--tr>
+                                    <th scope="row">19</th>
+                                    <td>Coste total de cliente siendo servidor por hora:</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">20</th>
+                                    <td>Coste total de cliente en espera por hora:</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">21</th>
+                                    <td>Coste total del espacio en cola por hora:</td>
+                                    <td>0</td>
+                                </tr-->
+                                <tr>
+                                    <th scope="row">22</th>
+                                    <td>Coste total del sistema por hora:</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>               
+            </div>
+        </div>
+    </div>
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <!--Fuentes-->
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <!--script src="../js/formulario.js"></script-->
+</body>
+<footer style="background-color: #ffffff;" class="text-white mt-4">
+    <div class="container">
+        <div class="row " style="color: #183980;">
+            <div class="col-lg-12 ml-auto"  >
+                <h4 class="font-weight-bold">2022-1.TEL24. TEORÍA DE TRÁFICO Y COLAS - 12_G1_TLM_BQ</h4>
+                <p>Docente: Marlene Ballestas</p> 
+                <p>Facultad de ingenieria telematica</p>
+            </div>
+
+            <div class="col-lg-12 ml-auto">
+                <p class="text-center">© 2022 - 2022 2022-1.TEL24, Inc. Todos los derechos reservados. Privacy policy   /   Site map</p>
+            </div>          
+        </div>
+    </div>
+</footer>

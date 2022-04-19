@@ -1,0 +1,129 @@
+
+body {
+	font-family: sans-serif,'Roboto';
+	background: #f7f7f7;
+}
+
+.formulario-grupo-input {
+	position: relative;
+}
+
+.formulario-input:focus {
+	border: 2px solid #4996ee;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+
+.formulario-input-error {
+	font-size: 12px;
+	margin-bottom: 0;
+	display: none;
+	color: #bb2929;
+}
+
+.formulario-input-error-activo {
+	display: block;
+}
+
+.formulario-validacion-estado {
+	position: absolute;
+	right: 10px;
+	bottom: 15px;
+	z-index: 100;
+	font-size: 16px;
+	opacity: 0;
+}
+
+.formulario-mensaje {
+	height: 35px;
+	line-height: 35px;
+	background: #F66060;
+	padding: 0 15px;
+	border-radius: 3px;
+    display: none;
+}
+
+.formulario-mensaje p{
+	margin: 0;
+    color: #fff;
+    font-size: 14px;
+}
+
+.formulario-mensaje-activo {
+	display: block;
+}
+
+.formulario-mensaje-exito {
+	font-size: 14px;
+	color: #d1f1cd;
+	display: none;
+	background: #119200;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 15px;
+	border-radius: 3px;
+	margin-top: 2px;
+}
+
+.formulario-mensaje-exito-activo {
+	display: block;
+}
+
+/* ----- -----  Estilos para Validacion ----- ----- */
+.formulario-grupo-correcto .formulario-validacion-estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.formulario-grupo-incorrecto .formulario-validacion-estado {
+	color: #bb2929;
+	opacity: 1;
+}
+
+.formulario-grupo-incorrecto .formulario-input {
+	border: 1px solid #bb2929;
+}
+
+
+.btn-calcular {
+	color: #fff;
+	padding: 0.5em 1.2em;
+	background: #183980;
+	border: 2px solid;
+	border-color: #183980;
+	width: 30%;
+}
+
+.btn-calcular:hover {
+	background-color: #e0aa35;
+	border-color: #e0aa35 ;
+  }
+
+
+
+h4, h5 {
+	color: #183980;
+	text-align: center;
+	font-weight: bold;
+}
+
+
+table {
+	/*border: 0.5px solid #000;*/
+	border-spacing: 0em;   
+ }
+
+
+ th {
+	text-align: center;
+	/*border: 0.5px solid #000;*/
+	
+	background-color: #e0aa35;
+	color: #fff;
+ }
+
+ td {
+	text-align: left;
+	border: 0.5px solid #000;
+ }
+

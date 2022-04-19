@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modelo M/D/1</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link rel="stylesheet" href="../css/formulario.css" />
+  </head>
+
+  <body style="background-color: #e7e7e7">
+    <div class="cuadro-login">
+      <div class="container">
+          <a id="inicio" href="../index.html">
+              <img class="mt-2" src="../img/itsa.png"   alt="Logo de Itsa" width="140px">
+          </a>
+      </div>
+  </div>
+    <div class="container mt-4">
+      <div class="row justify-content-center">
+        <div class="card col-lg-12 mt-4">
+          <div class="card-header bg-white">
+            <h5>MODELO DE COLA M/D/1</h5>
+          </div>
+          <div class="card-body">
+            <form action="" class="formulario" id="formulario">
+              <div class="form-row" id="grupo-txtServidores">
+                <label for="txtServidores" class="col-lg-3"
+                  >Número de servidores:</label
+                >
+                <div class="form-group col-lg-9">
+                  <input
+                    class="form-control"
+                    name="txtServidores"
+                    id="txtServidores"
+                    type="number"
+                    placeholder="1"
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label for="txtTasaServicio" class="col-lg-3"
+                  >Tasa de servicio (μ - miu):</label
+                >
+                <div class="form-group col-lg-9">
+                  <input
+                    class="form-control"
+                    name="txtTasaServicio"
+                    id="txtTasaServicio"
+                    type="number"
+                    placeholder="Tasa de servicio: μ"
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label for="txtTasaLLegadaClientes" class="col-lg-3"
+                  >Tasa de llegada de clientes (λ - lamda):
+                </label>
+                <div class="form-group col-lg-9">
+                  <input
+                    class="form-control"
+                    name="txtTasaLLegadaClientes"
+                    id="txtTasaLLegadaClientes"
+                    type="number"
+                    placeholder="Tasa de llegada de clientes: λ"
+                  />
+                </div>
+              </div>  
+              
+              <div class="form-row">
+                <label for="txtCapacidadCola" class="col-lg-3"
+                  >Capacidad de cola:
+                </label>
+                <div class="form-group col-lg-9">
+                  <input
+                    class="form-control"
+                    name="txtCapacidadCola"
+                    id="txtCapacidadCola"
+                    type="number"
+                    placeholder="M"
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label for="txtTPoblacionCliente" class="col-lg-3"
+                  >Tamaño de la población de cliente:
+                </label>
+                <div class="form-group col-lg-9">
+                  <input
+                    class="form-control"
+                    name="txtTPoblacionCliente"
+                    id="txtTPoblacionCliente"
+                    type="number"
+                    placeholder="M"
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label for="txtN" class="col-lg-3"
+                  >N
+                </label>
+                <div class="form-group col-lg-9">
+                  <input
+                    class="form-control"
+                    name="txtN"
+                    id="txtN"
+                    type="number"
+                    placeholder="N"
+                  />
+                </div>
+              </div>
+
+              <div class="text-center mt-2">
+                <button
+                  class="btn btn-calcular"
+                  id="btnGuardar"
+                  type="button"
+                  onclick="calcular();"
+                >
+                  Calcular
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+   
+
+      <div class="row justify-content-center">
+        <div class="card col-lg-10 mt-5">
+          <div class="card-header">
+            <h4 class="resultados">Tabla de resultados - M/D/1</h4>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive-md">
+              <table class="table table-sm table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Contexto</th>
+                    <th scope="col">Resultado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Sistema M/G/1</td>
+                    <td>M/M/1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Tasa de llegada de clientes (hora - lamda):</td>
+                    <td id="lamda">0</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Tasa de servicio (hora - miu):</td>
+                    <td id="miu">0</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Factor de utilización [p]:</td>
+                    <td id="p">0</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Número promedio de clientes en el sistema [Ls]:</td>
+                    <td id="Ls">0</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Número promedio de clientes en la cola [Lq]:</td>
+                    <td id="Lq">0</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>
+                      Tiempo promedio que un cliente pasa en el sistema [Ws]:
+                    </td>
+                    <td id="Ws">0</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>
+                      Tiempo promedio que un cliente pasa en la cola [Wq]:
+                    </td>
+                    <td id="Wq">0</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>
+                      Probabilidad de que todos los servidores esten inactivos
+                      [Po]:
+                    </td>
+                    <td id="Po">0</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>
+                      Probabilidad de n clientes en cola:
+                    </td>
+                    <td id="n">0</td>
+                  </tr>
+                  <!--tr>
+                    <th scope="row">10.1</th>
+                    <td>
+                      Sumatoria de probabilidades
+                    </td>
+                    <td id="sumatoria">0</td>
+                  </tr-->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <!--Fuentes-->
+    <script
+      src="https://kit.fontawesome.com/2c36e9b7b1.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--script src="../js/formulario.js"></script-->
+    <script src="../js/md1.js"></script>
+  </body>
+
+  <footer style="background-color: #ffffff" class="text-white mt-4">
+    <div class="container">
+      <div class="row" style="color: #183980">
+        <div class="col-lg-12 ml-auto">
+          <h4 class="font-weight-bold">
+            2022-1.TEL24. TEORÍA DE TRÁFICO Y COLAS - 12_G1_TLM_BQ
+          </h4>
+          <p>Docente: Marlene Ballestas</p>
+          <p>Facultad de ingenieria telematica</p>
+        </div>
+        <div class="col-lg-12 ml-auto">
+          <p class="text-center">
+            © 2022 - 2022 2022-1.TEL24, Inc. Todos los derechos reservados.
+            Privacy policy / Site map
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>
