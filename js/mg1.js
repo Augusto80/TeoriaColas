@@ -2,7 +2,7 @@ function calcular() {
     var miu = parseFloat(document.getElementById("txtTasaServicio").value);
     var lamda = parseFloat(document.getElementById("txtTasaLLegadaClientes").value);
     var errorTipico = parseFloat(document.getElementById("txtErrorTipico").value);
-    var n = parseFloat(document.getElementById("txtN").value);
+   
   
     var ps = (lamda/miu);
     var p = (lamda / miu) * 100;

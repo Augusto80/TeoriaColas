@@ -31,7 +31,7 @@
             <h5>MODELO DE COLA M/M/1</h5>
           </div>
           <div class="card-body">
-            <form action="" class="formulario" id="formulario">
+            <form action="" class="formulario" id="formulario" name="formulario" >
               <div class="form-row" id="grupo-txtServidores">
                 <label for="txtServidores" class="col-lg-3"
                   >Número de servidores:</label
@@ -59,6 +59,7 @@
                     id="txtTasaServicio"
                     type="number"
                     placeholder="Tasa de servicio: μ"
+                     
                   />
                 </div>
               </div>
@@ -112,7 +113,7 @@
 
               <div class="form-row">
                 <label for="txtN" class="col-lg-3"
-                  >N
+                  >N clientes
                 </label>
                 <div class="form-group col-lg-9">
                   <input
@@ -120,7 +121,7 @@
                     name="txtN"
                     id="txtN"
                     type="number"
-                    placeholder="N"
+                    placeholder="N clientes"
                   />
                 </div>
               </div>
@@ -155,6 +156,21 @@
                 </div>
               </div>
 
+              <div class="form-row">
+                <label for="txtT" class="col-lg-3"
+                  >T tiempo
+                </label>
+                <div class="form-group col-lg-9">
+                  <input
+                    class="form-control"
+                    name="txtT"
+                    id="txtT"
+                    type="number"
+                    placeholder="T tiempo"
+                  />
+                </div>
+              </div>
+
               <div class="text-center mt-2">
                 <button
                   class="btn btn-calcular"
@@ -164,6 +180,8 @@
                 >
                   Calcular
                 </button>
+             
+
               </div>
             </form>
           </div>
@@ -247,27 +265,41 @@
                     </td>
                     <td id="n">0</td>
                   </tr>
-                  <!--tr>
-                    <th scope="row">10.1</th>
-                    <td>
-                      Sumatoria de probabilidades
-                    </td>
-                    <td id="sumatoria">0</td>
-                  </tr-->
                   <tr>
                     <th scope="row">11</th>
+                    <td>
+                      Probabilidad de tener una cola de más de n clientes.
+                    </td>
+                    <td id="sumatoria">0</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">12</th>
                     <td>Coste total servicio [CS]:</td>
                     <td id="CS">0</td>
                   </tr>
                   <tr>
-                    <th scope="row">12</th>
+                    <th scope="row">13</th>
                     <td>Coste total de espera en cola [CTQ]:</td>
                     <td id="CTQ">0</td>
                   </tr>
                   <tr>
-                    <th scope="row">13</th>
+                    <th scope="row">14</th>
                     <td>Coste total del sistema [CTS]:</td>
                     <td id="CTS">0</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">15</th>
+                    <td>
+                      probabilidad del tiempo de espera de un cliente en el sistema:
+                    </td>
+                    <td id="Ts">0</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">16</th>
+                    <td>
+                      probabilidad del tiempo de espera de un cliente en la cola:
+                    </td>
+                    <td id="Tq">0</td>
                   </tr>
                 </tbody>
               </table>

@@ -1,8 +1,6 @@
 function calcular() {
     var miu = parseFloat(document.getElementById("txtTasaServicio").value);
     var lamda = parseFloat(document.getElementById("txtTasaLLegadaClientes").value);
-
-    var n = parseFloat(document.getElementById("txtN").value);
   
     var ps = (lamda/miu);
     var p = (lamda / miu) * 100;
@@ -21,8 +19,7 @@ function calcular() {
     document.getElementById("Ls").innerHTML = Ls.toFixed(4);
     document.getElementById("Wq").innerHTML = Wq.toFixed(4);
     document.getElementById("Ws").innerHTML = Ws.toFixed(4);
-    //document.getElementById("n").innerHTML = probabilidad.toFixed(4) + " ~ "  + (probabilidad*100).toFixed(2) + "%";
-    //document.getElementById("sumatoria").innerHTML = sumatoria;
+ 
 
   }
   
